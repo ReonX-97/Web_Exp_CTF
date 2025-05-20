@@ -1,0 +1,119 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #0a0a0a;
+    color: #33ff33;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.background-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    opacity: 0.15;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #33ff33;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(51, 255, 51, 0.3);
+    width: 80%;
+    max-width: 600px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #33ff33;
+}
+.terminal {
+    background-color: #000;
+    border: 1px solid #33ff33;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+    height: 200px;
+    overflow-y: auto;
+    position: relative;
+}
+.terminal-text {
+    margin: 0;
+    white-space: pre-wrap;
+    text-align: left; /* Ensure text is consistently left-aligned */
+}
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background-color: #33ff33;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.input-area {
+    display: flex;
+    margin-bottom: 20px;
+}
+input {
+    flex: 1;
+    background-color: #000;
+    border: 1px solid #33ff33;
+    color: #33ff33;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    outline: none;
+}
+button {
+    background-color: #000;
+    color: #33ff33;
+    border: 1px solid #33ff33;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Courier New', monospace;
+}
+button:hover {
+    background-color: #33ff33;
+    color: #000;
+}
+.status {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.access-denied {
+    color: #ff3333;
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+.access-granted {
+    color: #33ff33;
+    animation: pulse 1s;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

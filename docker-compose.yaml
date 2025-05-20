@@ -1,0 +1,40 @@
+services:
+  # MariaDB Database
+  db:
+    image: mariadb:10.5
+    container_name: ctf-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: ctf_challenge
+      MYSQL_USER: ctf_user
+      MYSQL_PASSWORD: ctf_password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - ctf-network
+
+  # Node.js Application
+  app:
+    build: .
+    container_name: ctf-app
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - PORT=3000
+      - DB_HOST=db
+      - DB_USER=ctf_user
+      - DB_PASSWORD=ctf_password
+      - DB_DATABASE=ctf_challenge
+    networks:
+      - ctf-network
+
+volumes:
+  db_data:
+
+networks:
+  ctf-network:
+    driver: bridge

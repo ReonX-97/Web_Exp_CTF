@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Access Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-text" id="background-matrix"></div>
+    <div class="container">
+        <h1>ACCESS CONTROL SYSTEM</h1>
+        <div class="terminal" id="terminal">
+            <p class="terminal-text" id="terminal-output" style="text-align: left;">
+                SYSTEM INITIALIZED...
+                WAITING FOR AUTHENTICATION...
+                ENTER ACCESS CODE:
+            </p>
+            <span class="terminal-cursor"></span>
+        </div>
+        <div class="input-area">
+            <input type="text" id="code-input" placeholder="Enter access code">
+            <button id="submit-btn">SUBMIT</button>
+        </div>
+        <div class="status" id="status-message"></div>
+    </div>
+    
+    <script src="script_UI.js"></script>
+    <script src="script_COMM.js"></script>
+</body>
+</html>
