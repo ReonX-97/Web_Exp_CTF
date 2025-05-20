@@ -87,7 +87,7 @@ app.post('/api/check-code', async (req, res) => {
             return res.json({ 
                 success: true, 
                 message: "Correct code!",
-                flag: "CTF{h1dd3n_d3l3t3_3ndp01nt_f0und}"
+                flag: "SkoyNXtvMWtrM3VfazNzM2EzXzN1a3cwMXVhX20wYnVrfQ=="
             });
         } else {
             return res.json({ success: false, message: "Invalid code" });
