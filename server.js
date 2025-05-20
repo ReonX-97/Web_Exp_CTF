@@ -12,11 +12,13 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from 'public' directory
 
 // Database configuration
+console.log("Database URL:", process.env.DATABASE_URL ? "Set (value hidden)" : "Not set");
+
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
+    connectionString: process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5432/postgres',
+    ssl: process.env.DATABASE_URL ? {
         rejectUnauthorized: false
-    }
+    } : false
 });
 
 // Database initialization function
